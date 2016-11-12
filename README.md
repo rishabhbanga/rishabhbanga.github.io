@@ -7,10 +7,11 @@ This webpage is based on the Aerial theme by HTML5 UP, a single page, single scr
 Credits:
 
 	Theme:
-		Aerial by aj@lkn.io(html5up.net/aerial)
+		aj@lkn.io    (html5up.net/aerial)
 
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)
+		phbernard	   (http://realfavicongenerator.net/)
 
 	Other:
 		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
