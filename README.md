@@ -4,6 +4,7 @@ Rishabh Banga's website https://rishabhbanga.github.io/
 
 This webpage is based on the Aerial theme by HTML5 UP, a single page, single screen responsive site template.Makes heavy use of CSS animation. Works well as a landing page that just directs folks to your stuff elsewhere on the www, though I'm planning to mix it up.
 
+
 Credits:
 
 	Theme:
