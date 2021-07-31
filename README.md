@@ -1,21 +1,41 @@
-# rishabhbanga.github.io
+# Personal Portfolio 
+> https://rishabhbanga.github.io/
 
-Rishabh Banga's website https://rishabhbanga.github.io/
 
-This webpage is based on the Aerial theme by HTML5 UP, a single page, single screen responsive site template. Makes heavy use of CSS animation. Works as a landing page that just directs folks to my presence/contributions elsewhere on the www, though I'm planning to mix it up.
+### Website Preview
+#### Home Page
+<img src="website_images/HomePage.gif" width="900">
 
-Credits:
+#### About Page
+<img src="website_images/AboutPage.png" width="900">
 
-	Theme:
-		aj@lkn.io    (html5up.net/aerial)
+#### Projects Page
+<img src="website_images/ProjectPage.png" width="900">
+  
+## Features 📋
+⚡️ Fully Responsive\
+⚡️ Valid HTML5 & CSS3\
+⚡️ Typing animation using `Typed.js`\
+⚡️ Easy to modify
 
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-		phbernard    (http://realfavicongenerator.net/)
+## Installation & Deployment 📦
+- Clone the repository and modify the content of <b>index.html</b> 
+- Add or remove images from `assets/img/` directory as per your requirement.
+- Update the info of `projects` folder according to your need
+- Use [Github Pages](https://create-react-app.dev/docs/deployment/#github-pages) to create your own website.
+- To deploy your website, first you need to create github repository with name `<your-github-username>.github.io` and push the generated code to the `master` branch.
 
-	Other:
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		CSS3 PIE     (css3pie.com)
-		Sass         (sass-lang.com)
-		Respond.js   (j.mp/respondjs)
-		Skel         (skel.io)
+## Sections 📚
+✔️ About\
+✔️ Interests\
+✔️ Education\
+✔️ Online Certification\
+✔️ Experience\
+
+## Tools Used 🛠️
+* <b>GitHub Pages</b> - To host my static website (HTML, CSS, JS).
+
+## License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
