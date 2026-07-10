@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Community to Operating Layer Mockup</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3eee6;
+        --bg-2: #e8e0d4;
+        --surface: rgba(255, 250, 244, 0.92);
+        --surface-strong: rgba(255, 255, 255, 0.98);
+        --text: #18222d;
+        --muted: rgba(24, 34, 45, 0.68);
+        --line: rgba(43, 54, 65, 0.12);
+        --line-strong: rgba(43, 54, 65, 0.2);
+        --accent: #2e6f73;
+        --accent-2: #8c6240;
+        --accent-soft: rgba(46, 111, 115, 0.1);
+        --success: #3d7a5e;
+        --warning: #9e6d2f;
+        --shadow: 0 24px 60px rgba(33, 28, 23, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font: 16px/1.6 "Avenir Next", "Avenir", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 14% 14%, rgba(46, 111, 115, 0.10), transparent 24%),
+          radial-gradient(circle at 86% 12%, rgba(140, 98, 64, 0.10), transparent 22%),
+          radial-gradient(circle at 50% 100%, rgba(61, 122, 94, 0.08), transparent 28%),
+          linear-gradient(160deg, var(--bg), var(--bg-2));
+        padding: 32px 20px 40px;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(rgba(54, 65, 76, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(54, 65, 76, 0.04) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.62), transparent 90%);
+        opacity: 0.28;
+      }
+
+      .frame {
+        position: relative;
+        z-index: 1;
+        width: min(1280px, 100%);
+        margin: 0 auto;
+      }
+
+      .section {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-top: 3px solid rgba(46, 111, 115, 0.42);
+        border-radius: 28px;
+        background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px) saturate(110%);
+        padding: 30px;
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(46, 111, 115, 0.05), transparent 30%),
+          linear-gradient(320deg, rgba(140, 98, 64, 0.05), transparent 35%);
+        pointer-events: none;
+      }
+
+      .section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .title-block {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(34px, 4.8vw, 56px);
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 880px;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card,
+      .diagram,
+      .metrics,
+      .takeaway {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 14px 28px rgba(30, 25, 20, 0.06);
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .card h2,
+      .diagram h2 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .card p,
+      .diagram p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .signal-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .signal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(248, 243, 236, 0.96), rgba(255, 255, 255, 0.9));
+        border: 1px solid var(--line);
+      }
+
+      .signal strong {
+        font-weight: 700;
+      }
+
+      .signal span:last-child {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .mini-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .mini-metric {
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(244, 239, 232, 0.88));
+      }
+
+      .mini-metric b {
+        display: block;
+        font-size: 20px;
+        line-height: 1;
+      }
+
+      .mini-metric span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .diagram {
+        padding: 22px;
+        min-height: 100%;
+        display: grid;
+        gap: 18px;
+      }
+
+      .diagram-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .pipeline {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        padding: 4px 0 0;
+      }
+
+      .pipeline::before {
+        content: "";
+        position: absolute;
+        top: 26px;
+        bottom: 26px;
+        left: 30px;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(46, 111, 115, 0.22), rgba(46, 111, 115, 0.10));
+      }
+
+      .step {
+        position: relative;
+        margin-left: 8px;
+        padding: 16px 16px 16px 54px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255,255,255,0.93), rgba(248,243,236,0.84));
+      }
+
+      .step::before {
+        content: "";
+        position: absolute;
+        left: 17px;
+        top: 18px;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #1c5256);
+        box-shadow: 0 8px 18px rgba(46, 111, 115, 0.18);
+      }
+
+      .step::after {
+        content: "";
+        position: absolute;
+        left: 26px;
+        top: 27px;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid rgba(255,255,255,0.96);
+        border-top: 2px solid rgba(255,255,255,0.96);
+        transform: rotate(45deg);
+      }
+
+      .step h3 {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .step p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .legend {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .legend-item {
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.74);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .legend-item strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+        font-size: 13px;
+      }
+
+      .metrics {
+        margin-top: 18px;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 10px 12px;
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247, 241, 233, 0.84));
+        border: 1px solid var(--line);
+      }
+
+      .metric b {
+        display: block;
+        font-size: 18px;
+        letter-spacing: -0.02em;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .takeaway {
+        margin-top: 18px;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-left: 4px solid var(--accent-2);
+      }
+
+      .takeaway strong {
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--accent-2);
+        margin-bottom: 6px;
+      }
+
+      .takeaway p {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.45;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .chip {
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.82);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 980px) {
+        .content,
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .legend {
+          grid-template-columns: 1fr;
+        }
+
+        .takeaway {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 680px) {
+        body {
+          padding: 16px;
+        }
+
+        .section {
+          padding: 20px;
+          border-radius: 22px;
+        }
+
+        .card,
+        .diagram {
+          padding: 18px;
+        }
+
+        .step {
+          padding-left: 48px;
+        }
+
+        .step::before {
+          left: 14px;
+        }
+
+        .step::after {
+          left: 23px;
+        }
+
+        .pipeline::before {
+          left: 27px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame">
+      <section class="section" aria-labelledby="section-title">
+        <div class="title-block">
+          <p class="eyebrow">Operating layer section</p>
+          <h1 id="section-title">From community activity to an operating layer</h1>
+          <p class="lede">
+            The section should read as a system, not a paragraph. Community activity becomes a signal stream,
+            the stream gets translated into operating rules, and the rules drive visible actions.
+          </p>
+        </div>
+
+        <div class="content">
+          <div class="stack">
+            <article class="card">
+              <h2>Community activity</h2>
+              <p>Raw interaction data that gets captured before it becomes meaning.</p>
+              <div class="signal-list" aria-label="Community signals">
+                <div class="signal"><strong>Posts</strong><span>frequency, volume, topic</span></div>
+                <div class="signal"><strong>Comments</strong><span>questions, friction, intent</span></div>
+                <div class="signal"><strong>Reactions</strong><span>approval, urgency, interest</span></div>
+                <div class="signal"><strong>Repeated patterns</strong><span>behavior worth routing</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <h2>What gets extracted</h2>
+              <p>Meaningful inputs that an operating layer can actually use.</p>
+              <div class="chip-row" aria-label="Extracted outputs">
+                <span class="chip">Demand</span>
+                <span class="chip">Intent</span>
+                <span class="chip">Friction</span>
+                <span class="chip">Priority</span>
+                <span class="chip">Escalation</span>
+              </div>
+              <div class="mini-metrics">
+                <div class="mini-metric">
+                  <b>03</b>
+                  <span>signal classes</span>
+                </div>
+                <div class="mini-metric">
+                  <b>12x</b>
+                  <span>faster triage target</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="diagram">
+            <div class="diagram-top">
+              <div>
+                <h2>Operating layer</h2>
+                <p>The layer that turns activity into decisions, workflows, and output.</p>
+              </div>
+              <span class="badge">Live system view</span>
+            </div>
+
+            <div class="pipeline" aria-label="Operating layer pipeline">
+              <div class="step">
+                <h3>1. Capture</h3>
+                <p>Collect activity from posts, comments, reactions, and repeated behaviors.</p>
+              </div>
+              <div class="step">
+                <h3>2. Route</h3>
+                <p>Convert raw activity into prioritized queues, rules, and ownership paths.</p>
+              </div>
+              <div class="step">
+                <h3>3. Act</h3>
+                <p>Trigger workflows, surface decisions, and feed the result back into the system.</p>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div class="legend-item">
+                <strong>Signal</strong>
+                community behavior as input
+              </div>
+              <div class="legend-item">
+                <strong>Translation</strong>
+                rules that organize meaning
+              </div>
+              <div class="legend-item">
+                <strong>Output</strong>
+                action that changes operations
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="metrics" aria-label="Section metrics">
+          <div class="metric">
+            <b>Signals tracked</b>
+            <span>community behavior captured in one place</span>
+          </div>
+          <div class="metric">
+            <b>Routing faster</b>
+            <span>less manual sorting, more direct action</span>
+          </div>
+          <div class="metric">
+            <b>Actions automated</b>
+            <span>workflows trigger from meaningful activity</span>
+          </div>
+          <div class="metric">
+            <b>Coverage improved</b>
+            <span>more of the community becomes operational input</span>
+          </div>
+        </div>
+
+        <div class="takeaway">
+          <div>
+            <strong>Result</strong>
+            <p>Less manual triage, faster decisions, and clearer execution.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
