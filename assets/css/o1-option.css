@@ -1,0 +1,17 @@
+@import url('o2.css?v=20260714-5');
+
+:root { --paper:#edf3ff; --ink:#102448; --muted:#536a8a; --line:#c1cee3; --acid:#d9f06a; --orange:#3f61e7; --blue:#8aa8ff; }
+.o2-statement .o2-section-index { color:#adbddd; }
+.o2-body-copy { color:#687fa2; }
+.o2-principles { border-color:#3f5881; }
+.o2-principles div { border-color:#3f5881; }
+.o2-principles small { color:#afbfdb; }
+.o2-case-results { background:#102448; }
+.o2-case-metrics > div + div, .o2-case-summary .o2-case-metrics > div + div { border-color:#4c6590; }
+.o2-case-metrics span { color:#b9c8e5; }
+.o2-talks { background:#dce7ff; }
+.o2-talks-heading .o2-body-copy { color:#4f6690; }
+.o2-arc .o2-body-copy, .o2-arc-line b, .o2-arc-line small { color:#233d9e; }
+.o2-contact footer { border-color:#435a83; color:#b4c3df; }
+.o2-contact > p:not(.o2-eyebrow) { color:#b4c3df; }
+.o2-contact-link { border-color:#7187ad; }
