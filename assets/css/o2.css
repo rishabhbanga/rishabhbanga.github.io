@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap');
-
 :root { --paper:#f2eee5; --ink:#171817; --muted:#6f7069; --line:#c9c5b9; --acid:#d9f05a; --orange:#f05a3d; --blue:#7a9eff; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
