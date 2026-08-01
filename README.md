@@ -1,6 +1,9 @@
 # Personal Portfolio 
 > https://rishabhbanga.github.io/
 
+Related reference:
+> IEEE WFPST tutorials page: https://ieee-wfpst.org/tutorials-2/
+
 ## Tools Used 🛠️
 * <b>GitHub Pages</b> - To host my static website (HTML, CSS, JS).
 
