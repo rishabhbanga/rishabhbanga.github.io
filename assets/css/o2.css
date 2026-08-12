@@ -163,6 +163,7 @@ h1 em, h2 em { color:var(--orange); font-style:normal; }
 .o2-writing-feature { background:var(--ink); color:var(--paper); display:grid; gap:34px; grid-template-columns:minmax(160px,.52fr) minmax(0,1.48fr); padding:clamp(28px,4vw,58px); }
 .o2-writing-meta { color:var(--acid); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.06em; line-height:1.55; margin:0; text-transform:uppercase; }
 .o2-writing-feature h3, .o2-writing-series h3, .o2-writing-grid h3 { font-family:'Space Grotesk',sans-serif; font-weight:500; letter-spacing:-.06em; line-height:.98; }
+.o2-writing-feature-image { aspect-ratio:3 / 2; display:block; height:auto; margin:0 0 30px; object-fit:cover; width:100%; }
 .o2-writing-feature h3 { font-size:clamp(32px,4vw,58px); margin:0; max-width:760px; }
 .o2-writing-feature div > p { color:#b4b3aa; font-size:17px; line-height:1.45; margin:24px 0 0; max-width:620px; }
 .o2-writing-link { border-bottom:1px solid var(--paper); display:inline-flex; font-family:'DM Mono',monospace; font-size:11px; gap:14px; margin-top:32px; padding-bottom:8px; text-transform:uppercase; }
