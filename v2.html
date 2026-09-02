@@ -67,6 +67,16 @@
                     </svg>
                     <span class="o2-trust-caption" aria-hidden="true"><strong class="o2-trust-caption-title">Judgment</strong><span class="o2-trust-caption-divider">—</span><span class="o2-trust-caption-copy">Better decisions at the core.</span></span>
                 </button>
+                <svg class="o2-trust-defs" aria-hidden="true" focusable="false" width="0" height="0">
+                    <defs>
+                        <filter id="liquid-twist" x="-20%" y="-20%" width="140%" height="140%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise">
+                                <animate attributeName="baseFrequency" values="0.015;0.025;0.015" dur="8s" repeatCount="indefinite"></animate>
+                            </feTurbulence>
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             <div class="o2-hero-foot">Toronto / open to the right conversation <span>2026</span></div>
         </section>
