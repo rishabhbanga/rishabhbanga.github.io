@@ -17,7 +17,7 @@ main { margin:0 auto; max-width:1600px; }
 .o2-hero-index, .o2-section-index { color:var(--muted); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding-top:8px; text-transform:uppercase; }
 .o2-hero-index span, .o2-section-index span { display:block; margin-top:7px; writing-mode:vertical-rl; }
 .o2-hero-main { max-width:920px; }
-.o2-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.07em; margin:0 0 26px; text-transform:uppercase; }
+.o2-eyebrow { display:none; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.07em; margin:0 0 26px; text-transform:uppercase; }
 .o2-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(48px,6.7vw,112px); font-weight:500; letter-spacing:-.075em; line-height:.91; margin:0; max-width:1000px; }
 h1 em, h2 em { color:var(--orange); font-style:normal; }
 .o2-hero-intro { font-size:clamp(18px,1.8vw,27px); line-height:1.28; margin:55px 0 36px; max-width:520px; }
@@ -148,8 +148,8 @@ h1 em, h2 em { color:var(--orange); font-style:normal; }
 .o2-talk-feature p { color:var(--muted); margin:0; }
 .o2-talk-feature .o2-text-link { margin-top:28px; }
 .o2-talk-grid { display:grid; gap:16px; grid-column:2 / -1; grid-template-columns:repeat(3,1fr); }
-.o2-talk-grid article { background:var(--paper); }
-.o2-talk-grid img { aspect-ratio:3 / 2; background:#e5e3dc; display:block; height:auto; object-fit:contain; width:100%; }
+.o2-talk-grid article { background:var(--paper); overflow:hidden; }
+.o2-talk-grid img { aspect-ratio:3 / 2; background:#e5e3dc; display:block; height:auto; object-fit:cover; width:100%; }
 .o2-talk-grid div { padding:18px; }
 .o2-talk-grid span { color:var(--orange); font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; }
 .o2-talk-grid h3 { font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:500; letter-spacing:-.04em; line-height:1; margin:10px 0 0; }
