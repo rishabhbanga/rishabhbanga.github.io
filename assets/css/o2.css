@@ -149,6 +149,7 @@ h1 em, h2 em { color:var(--orange); font-style:normal; }
 .o2-talk-feature .o2-text-link { margin-top:28px; }
 .o2-talk-grid { display:grid; gap:16px; grid-column:2 / -1; grid-template-columns:repeat(3,1fr); }
 .o2-talk-grid article { background:var(--paper); overflow:hidden; }
+.o2-talk-grid picture { display:block; }
 .o2-talk-grid img { aspect-ratio:3 / 2; background:#e5e3dc; display:block; height:auto; object-fit:cover; width:100%; }
 .o2-talk-grid div { padding:18px; }
 .o2-talk-grid span { color:var(--orange); font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; }
